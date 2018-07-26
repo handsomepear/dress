@@ -1,0 +1,13 @@
+<!-- <view class="header {{[isx ? 'isx' : '', isAndroid ? 'android' : '']}}" > -->
+<view style="height:{{isx ? '88px' : '64px'}}">
+  <view class="header-wrap" style="background-color:{{backgroundColor}};color:{{color}};height:{{isx ? '88px' : '64px'}};padding-top:{{isx ? '40px': '20px'}}">
+    <view class="header-title">
+      <!-- <image wx:if="{{isFromTemp || isShare}}" class="left-home" src="/img/icon-home.png" bindtap="backHandler" data-a="去首页"></image> -->
+      <view class="left-back" wx:if="{{isShowBack}}" bindtap="backHandler" data-a="back">
+        <view class="inner" style="border-left: 1px solid {{color}};border-bottom: 1px solid {{color}};"></view>
+      </view>
+      <slot></slot>
+    </view>
+  </view>
+  <view class="header-placeholder"/>
+</view>

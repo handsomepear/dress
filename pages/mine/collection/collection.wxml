@@ -1,0 +1,18 @@
+<!--mine-index.wxml-->
+<header backgroundColor="#fff" color="#000" isShowBack>我的收藏</header>
+<view class="like-list">
+	<block class="t" wx:for="{{likeList}}" wx:key="{{item.id}}">
+		<view class="item">
+			<view class="img-wrap"><image class="img" src="{{item.img}}"></image></view>
+			<view class="txt mt10 fc-black">{{item.title}}</view>
+			<view class="txt mb10 fc-pink">￥{{item.price}}</view>
+			<view class="btn-wrap"> 
+				<view class="btn info"><i class="iconfont icon-delete f26"></i></view>
+				<view class="btn info"><i class="iconfont icon-move-cart f48"></i></view>
+			</view>
+		</view>
+	</block>
+</view>
+
+<!-- 未授权提示 -->
+<include class="" src="../../components/auth.wxml"></include>

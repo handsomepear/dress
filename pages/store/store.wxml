@@ -1,0 +1,17 @@
+<view class="store">
+  <header isShowBack="true">{{shopTitle}}</header>
+  <view class="loading-con" style="top: {{isx ? '88px' : '64px'}}" wx:if="{{isPullLoading}}">
+    <view class="loading"></view>
+  </view>
+  <view class="like-list">
+    <block class="t" wx:for="{{storeList}}" wx:key="{{item.id}}">
+      <view class="item" data-product-id="{{item.skus[0].productId}}" bindtap="viewDetail">
+        <view class="img-wrap">
+          <image class="img" src="{{item.skus[0].imgUrl}}"></image>
+        </view>
+        <view class="txt mt10 fc-black">{{item.title}}</view>
+        <view class="txt mb10 fc-pink">￥{{item.highPrice}}</view>
+      </view>
+    </block>
+  </view>
+</view>

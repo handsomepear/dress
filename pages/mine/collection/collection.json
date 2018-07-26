@@ -1,0 +1,9 @@
+{
+	"usingComponents": {
+    "header": "../../components/header/header"
+  },
+  "backgroundTextStyle": "light",
+  "navigationBarBackgroundColor": "#fff",
+  "navigationBarTitleText": "我的收藏",
+  "navigationBarTextStyle": "black"
+}

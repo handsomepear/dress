@@ -1,0 +1,57 @@
+<wxs src="../../utils/tools.wxs" module="tools"></wxs>
+<view class="index-page">
+  <video id="video-context" src="{{products[currentIndex].video.url}}" loop="true" enable-progress-gesture="{{false}}"  controls="{{false}}" class="video" objectFit="cover" muted="{{true}}" autoplay="true">
+    <!-- 操作 -->
+    <cover-view class="good-side">
+      <!-- 店铺头像 -->
+      <cover-view class="store" data-shop-id="{{products[currentIndex].shopInfo.id}}" data-shop-title="{{products[currentIndex].shopInfo.title}}" bindtap="goStorePage">
+        <cover-view class="avatar">
+          <cover-image src="{{products[currentIndex].shopInfo.logo}}" />
+        </cover-view>
+        <cover-view class="store-name">{{products[currentIndex].shopInfo.title}}</cover-view>
+      </cover-view>
+      <!-- 收藏 -->
+      <cover-view class="collect" data-product-id="{{products[currentIndex].id}}" bindtap="collect">
+        <cover-image src="{{products[currentIndex].favorite ? '/static/img/liked.png' : '/static/img/like.png'}}" />
+        <cover-view class="collect-num"></cover-view>
+      </cover-view>
+      <!-- 加入购物车 -->
+      <cover-view class="add-cart" bindtap="showSkuModal">
+        <cover-image src="/static/img/cartindex.png" />
+      </cover-view>
+      <!-- 转发 -->
+      <cover-view class="share"  bindtap="checkVersion">
+        <cover-image src="/static/img/share.png" />
+        <button class="share-btn" plain="true" open-type="share"></button>
+      </cover-view>
+    </cover-view>
+  </video>
+  <!-- 商品信息 -->
+  <view class="good-detail">
+    <view>
+      <view class="detail-title">{{products[currentIndex].title}}</view>
+      <view class="detail-bottom">
+        <view class="detail-price">
+          <view class="now-price" wx-if="{{products[currentIndex].lowPrice}}">￥{{products[currentIndex].lowPrice}}</view>
+          <view class="prev-price">
+            <text class="price-num" wx-if="{{products[currentIndex].highPrice}}">原价￥{{products[currentIndex].highPrice}}</text>
+          </view>
+        </view>
+        <!-- 查看详情 -->
+        <button open-type="getUserInfo" class="detail-btn" data-product-id="{{products[currentIndex].id}}" bindtap="viewDetail" bindgetuserinfo="onGotUserInfo">
+          看详情
+        </button>
+      </view>
+    </view>
+    <!-- 下一个 -->
+    <view class="next" data-product-id="{{products[currentIndex].id}}" bindtap="next">
+      <view class="next-btn">
+        <i class="iconfont icon-youjiantou"></i>
+      </view>
+      <view>下一个</view>
+    </view>
+  </view>
+  <!-- sku 信息 -->
+  <!-- <cover-sku /> -->
+   <cover-sku wx:if="{{isShowSkuModal}}"  bindhideSkuModal="hideSkuModal" bindaddToCart="addToCart" title="{{products[currentIndex].title}}" skuInfo="{{products[currentIndex].skus}}"></cover-sku>
+</view>

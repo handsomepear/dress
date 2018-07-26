@@ -1,0 +1,24 @@
+.order-info {
+  background-color: #fff;
+  padding: 30rpx 24rpx;
+  box-sizing: border-box;
+  margin-bottom: 20rpx;
+}
+.info {
+  display: flex;
+  /* margin-bottom: 20rpx; */
+}
+.info:not(:first-child) {
+  margin-top: 20rpx;
+}
+.info .pic {
+  width: 128rpx;
+  height: 128rpx;
+}
+.info .pic image {
+  width: 100%;
+}
+.info .detail {
+  flex: 1;
+  margin-left: 20rpx;
+}

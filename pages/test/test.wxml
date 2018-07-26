@@ -1,0 +1,8 @@
+<!-- logs.wxml -->
+<wxs src="../../utils/tools.wxs" module="tools"></wxs>
+<view class="test">
+  <header>测试</header>
+  <!-- <sku-modal></sku-modal> -->
+  <!-- <cover-sku></cover-sku> -->
+  <!-- <logistics-modal></logistics-modal> -->
+</view>

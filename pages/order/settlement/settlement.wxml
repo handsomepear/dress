@@ -1,0 +1,87 @@
+<wxs src="../../../utils/tools.wxs" module="tools"></wxs>
+<view class="settlement">
+  <header isShowBack="true">订单提交</header>
+  <!-- 收货地址 -->
+  <view class="address-container" bindtap="setAddress">
+    <view class="address-wrap">
+      <view class="address-l">
+        <view class="no-address" wx:if="{{!address}}">
+          <i class="iconfont icon-position-2"></i>
+          <text class="fc-pink">请添加收货地址</text>
+        </view>
+        <view class="address" wx:else>
+          <view class="recipients-info">
+            <text class="name">{{address.name}}</text>
+            <text class="tel">{{tools.hideTelNumber(address.tel)}}</text>
+          </view>
+          <view class="address-info">
+            <i class="iconfont icon-position-2"></i>
+            <text> {{address.addrProvince}} {{address.addrCity}} {{address.addrDistrict}} {{address.addrDetail}} </text>
+          </view>
+        </view>
+      </view>
+      <view class="triangle">
+        <view class="content"></view>
+      </view>
+    </view>
+  </view>
+  <!-- 商品信息 -->
+  <view class="order-detail-container">
+    <view class="coder-list">
+      <block class="t" wx:for="{{preOrderInfo.orderList}}" wx:key="{{item.id}}" wx:for-item="item">
+        <view class="item mb20">
+          <view class="title f28">
+            <i class="iconfont icon-shop f26 mr10"></i>
+            <text class="f28">{{item.shop.name}}</text>
+          </view>
+          <view class="goods">
+            <block class="t" wx:for="{{item.skuList}}" wx:key="{{one.id}}" wx:for-item="one">
+              <view class="info mb20">
+                <view class="pic">
+                  <image class="t" src='{{one.img}}' mode="widthFix"></image>
+                </view>
+                <view class="detail">
+                  <view class="f28 mb24">{{one.title}}</view>
+                  <view class="fc-9b mb24">
+                    <text class="f24" wx:if="{{one.color}}">颜色：{{one.color}}；</text>
+                    <text class="f24" wx:if="{{one.size}}">尺码：{{one.size}}；</text>
+                  </view>
+                  <view class="f28">
+                    <text class="fc-pink f32">￥{{one.price}}</text>
+                    <text class="fr">
+                      <text class="f20">X</text>
+                      <text>{{one.quantity}}</text>
+                    </text>
+                  </view>
+                </view>
+              </view>
+            </block>
+          </view>
+          <view class="money-else">
+            <view class="freight">
+              <text>运费</text>
+              <text>￥{{item.feeInfo.logisticsFee}}</text>
+            </view>
+            <!-- <view class="coupon">
+              <text>现金券</text>
+              <text>-￥{{item.feeInfo.discountAmount}}</text>
+            </view> -->
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+  <!-- 协议 -->
+  <view class="protocol">
+    提交订单则表示您同意
+    <text>《用户购买协议》</text>
+  </view>
+  <!-- 支付 -->
+  <view class="pay-container">
+    <view class="money">
+      实付金额：
+      <text class="fc-pink">￥{{preOrderInfo.feeInfo.amount}}</text>
+    </view>
+    <view class="pay-btn" bindtap="wePay">微信支付</view>
+  </view>
+</view>

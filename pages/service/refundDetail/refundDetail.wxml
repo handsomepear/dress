@@ -1,0 +1,76 @@
+<view class="refund-detail">
+  <header isShowBack="true">退货详情</header>
+  <view class="order-info">
+    <view class="order-list">
+      <view class="info" wx:for="{{returnApplyInfo.orderSkuList}}" wx:key="{{item.id}}">
+        <view class="pic">
+          <image class="t" src='{{item.img}}' mode="widthFix"></image>
+        </view>
+        <view class="detail">
+          <view class="f28 mb10">{{item.title}}</view>
+          <view class="fc-999 mb10">
+            <block class="t">
+              <text class="f24">
+                <text wx:if="{{item.color}}">颜色：{{item.color}}；</text>
+                <text wx:if="{{item.size}}">尺码：{{item.size}}</text>
+              </text>
+            </block>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!-- 退款信息 -->
+    <view class="refund-info">
+      <view>退款原因：{{returnApplyInfo.reasonDesc}}</view>
+      <view wx:if="{{returnApplyInfo.applyType != 0}}">申请件数：{{returnApplyInfo.quantity}}</view>
+      <view>退款金额：￥{{returnApplyInfo.totalAmount}}</view>
+      <view wx:if="{{returnApplyInfo.status == 4}}">快递公司：{{returnApplyInfo.shipmentInfo.shipmentName}}</view>
+      <view wx:if="{{returnApplyInfo.status == 4}}">退货单号：{{returnApplyInfo.shipmentInfo.shipmentNumber}}</view>
+      <view>申请时间：{{returnApplyInfo.createTime}}</view>
+      <view>退款编号：{{returnApplyInfo.returnRefundNo}}</view>
+    </view>
+    <!-- 物流按钮 -->
+    <view class="express-btn" wx:if="{{returnApplyInfo.status == 4}}">
+      <view class="btn btn-small btn-info" bindtap="viewLogistics">查看物流</view>
+      <!-- <view class="btn btn-small btn-info" bindtap="changeLogistics">修改物流</view> -->
+    </view>
+  </view>
+  <!-- 退货进度 -->
+  <view class="progress">
+    <view class="line"></view>
+    <view class="progress-item {{index == 0 ? 'active' : ''}}" wx:for="{{returnLogList}}" wx:key="{{item.id}}">
+      <view class="dot"></view>
+      <text>{{item.eventDesc}}</text>
+      <view class="time">{{item.createTimeStr}}</view>
+    </view>
+  </view>
+  <!-- 退货退款并且商家已经同意退货 -->
+  <view class="fill-number" bindtap="fillNumber" wx:if="{{returnApplyInfo.applyType == 2 && returnApplyInfo.status == 3 }}">
+    <view class="btn btn-pink btn-big">填写快递单号</view>
+  </view>
+  <view class="question">
+    <!-- 问题说明 -->
+    <view class="issue-desc mt20" wx:if="{{returnApplyInfo.detailDesc}}">问题说明：{{returnApplyInfo.detailDesc}}</view>
+    <!-- 凭证 -->
+    <view class="evidence" wx:if="{{returnApplyInfo.proofUrl}}">
+      <view class="title">凭证</view>
+      <view class="evidence-img">
+        <block wx:for="{{proofUrlList}}" wx:key="{{index}}">
+          <image src="{{item}}" />
+        </block>
+      </view>
+    </view>
+  </view>
+  <!-- 申请退款 -->
+  <!-- <view class="refund-btn" wx:if="{{returnApplyInfo.applyType != 0 && returnApplyInfo.status == -1}}">
+    <view class="btn btn-pink btn-big" bindtap="applyRefund">申请退款</view>
+  </view> -->
+  <!-- 联系客服 -->
+  <button plain="true" open-type="contact">
+    <view class="customer">
+      <i class="iconfont icon-waiter-1 fc-pink"></i>
+      <text>联系平台客服</text>
+    </view>
+  </button>
+</view>
+<logistics-modal wx:if="{{isShowLogisticsModal}}" logisticsInfo="{{logisticsInfo}}" bindhideLogisticsModal="hideLogisticsModal" />

@@ -1,0 +1,108 @@
+
+/**index.wxss**/
+.f72{font-size: 72rpx;}
+.bg-a0a{background: #a0a0a0}
+
+.toper{ height: 192rpx; padding: 30rpx; box-sizing: border-box;font-size: 32rpx; color: #fff;line-height: 132rpx; }
+.toper .user-info{display: inline-block; }
+.toper .user-info .avatar{width: 116rpx; height: 116rpx; border-radius: 50%; vertical-align: middle; border:2rpx solid #fff; margin-right: 30rpx;}
+
+.nav{ height: 128rpx; display: flex; background: #fff; margin-bottom: 15rpx }
+.nav .item{flex: 1; text-align: center;  vertical-align: middle; margin: 15rpx 0 ; padding-top: 10rpx;}
+.nav .all{overflow: hidden; position: relative; }
+.nav .all:before{content: ''; transform: rotate(45deg); width: 30rpx; height: 30rpx; z-index: 2;background: #fff; border:2rpx solid #ddd ; position: absolute;left:-30rpx; top:30rpx; }
+.nav .all:after{content: '';  width: 2rpx; height: 100%; z-index: 1; border-left:2rpx solid #ddd ; position: absolute;left:0; top:0; }
+
+.tab-title{position: relative;height: 100rpx; background: #fff;  line-height: 100rpx; margin-bottom:10rpx;}
+.tab-title .tab-one{ display: inline-block; width: 50%; box-sizing: border-box; background: #f9f9f9; text-align: center; }
+.tab-title .tab-one.act{ background: #fff; border-bottom: 4rpx solid #FF6480	}
+.tab-title .tab-one.act i{ color: #FF6480 }
+/* scroll-view */
+/* .list-wrap{position:fixed;  bottom: 0; left: 0; right: 0 } */
+
+
+/* 我的收藏 */
+.like-list{}
+.like-list .item{ width: 49.6%;  display: inline-block;margin-bottom: 6rpx;margin-right:.8%; background: #fff}
+.like-list .item:nth-child(2n){margin-right:0;}
+.like-list .item .img{width:100%; height: 372rpx; vertical-align: top; }
+.like-list .item .txt{padding-left: 30rpx; line-height: 40rpx; font-size: 28rpx; }
+.like-list .item .btn-wrap{text-align: center;margin-bottom: 20rpx;}
+.like-list .item .btn{width:144rpx; height: 52rpx; vertical-align: top; line-height: 52rpx; border-radius: 26rpx; margin:0 10rpx; color:#999; border-color: #d7d7d7}
+
+/* 订单列表 */
+.coder-list{}
+.coder-list .item{background: #fff;padding:20rpx;}
+.coder-list .item .title{ height: 70rpx; color:#101010; line-height: 60rpx; border-bottom: 1px #f6f6f6 solid;margin-bottom: 25rpx;}
+.coder-list .item .goods{ border-bottom: 1px #f6f6f6 solid; }
+.coder-list .item .info{ display: flex }
+.coder-list .item .info .pic{width:190rpx; height:190rpx; }
+.coder-list .item .info .pic image{width:100%; height: 100%;}
+.coder-list .item .info .detail{flex:1; padding-left: 20rpx;}
+
+
+/* 现金券 */
+.coupon-list{margin:15rpx}
+.coupon-list .item{position:relative; height:200rpx; margin-bottom: 10rpx; }
+.coupon-list .item:before,
+.coupon-list .item:after{ content:''; position: absolute; height: 100%; width: 30rpx;  top: 0; z-index: 2;  }
+.coupon-list .item:before{left: 0; background: url(https://image.guang.j.cn/static/imgs/dress/my/coupon-bg-01.png?t=9584) no-repeat; background-size:contain;}
+.coupon-list .item:after {right: 0; background: url(https://image.guang.j.cn/static/imgs/dress/my/coupon-bg-02.png?t=9584) no-repeat right; background-size:contain;}
+.coupon-list .item .cash-wrap{ display: inline-block; vertical-align: top; width: 200rpx; height: 200rpx; padding-top:40rpx; box-sizing: border-box; color:#fff;}
+.coupon-list .item .cash-wrap .money{ position: relative; font-size: 70rpx; }
+.coupon-list .item .cash-wrap .money:before{content: '￥'; position: absolute; left:-30rpx; bottom: 10rpx; font-size: 36rpx
+  ; }
+.coupon-list .item .detail{ position: relative; display: inline-block;vertical-align: top; width: 520rpx;height:200rpx; box-sizing: border-box; padding:15rpx; background: #fff;overflow: hidden; }
+.coupon-list .item .detail .time{position: absolute; left: 15rpx; bottom: 15rpx;}
+.coupon-list .item .detail .opation{position: absolute; right: 30rpx; bottom: 25rpx;}
+.coupon-list .item .detail .opation .btn{ width: 152rpx; height: 56rpx; line-height: 56rpx }
+.coupon-list .item .detail .used{ position: absolute; width:120rpx; height: 120rpx; right: 30rpx; bottom:-40rpx; background: url(https://image.guang.j.cn/static/imgs/dress/my/used.png?t=9584) no-repeat ; background-size: 100%;}
+
+/* 我的地址 */
+.no-address{position: fixed; left: 0; top:0; right: 0; bottom: 0; display: flex; align-items: center; justify-content: center;}
+.no-address .inner{width:100%;}
+.no-address .btn-wrap{ padding:30rpx; }
+.no-address .btn-wrap .one{ padding: 30rpx; width: 50%; box-sizing: border-box; display: inline-block;}
+.no-address .btn-wrap .one .btn{width:100%;}
+
+/* .address-list{ border-top:2rpx solid #ddd; min-height: 100%; margin-bottom: -300rpx;  } */
+.address-list .item {background: #fff}
+.address-list .item-wrap{ margin-bottom: 20rpx;padding:20rpx;  }
+
+.address-list .item-wrap.act{ background: url(https://image.guang.j.cn/static/imgs/dress/my/tiaotiao.png?t=9584) bottom no-repeat; background-size:contain;  }
+.address-list .item .title{ font-size: 32rpx; font-weight:bold; color:#101010; line-height: 80rpx  }
+.address-list .item .info{font-size: 26rpx; color: #666 ;padding-bottom:20rpx; margin-bottom: 20rpx; border-bottom: 2rpx solid #ddd}
+.address-list .item .setting{line-height: 40rpx;}
+/* .add-btn{position: fixed; bottom:60rpx; left: 0; right: 0; padding:20rpx;} */
+
+.add-btn .btn{ width: 90%; font-size: 30rpx }
+
+/*添加地址*/
+.add-address .address-new{ padding:20rpx; border-top: 2rpx solid #ddd; font-size:30rpx }
+.add-address .address-new .item{border-bottom: 2rpx solid #ddd; line-height: 100rpx;}
+.add-address .address-new .item.flex{display:flex;align-items: center;}
+.add-address .address-new .item .tip {display:inline-block; width:160rpx;}
+.add-address .address-new .item  input{flex: 1;vertical-align: middle; line-height: 100rpx; }
+.add-address .add-bottom{ position: fixed; bottom: 60rpx; left:0; right: 0;  padding:0 30rpx;}
+.add-address .add-bottom .btn-big{width: 100%; margin-bottom: 30rpx; font-size: 30rpx;}
+
+.coder-list, .like-list {
+  position: relative;
+  height: 100%;
+}
+.empty {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  margin-top: 300rpx;
+}
+.empty i {
+  font-size: 110rpx;
+}
+.empty text {
+  font-size: 32rpx;
+  line-height: 44rpx;
+  margin-top: 30rpx;
+}

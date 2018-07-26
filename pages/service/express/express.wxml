@@ -1,0 +1,68 @@
+<view class="express">
+  <header isShowBack="true">退货详情</header>
+  <!-- <view class="order-info">
+    <view class="info">
+      <view class="pic">
+        <image class="t" src='/static/img/my-avatar.jpg' mode="widthFix"></image>
+      </view>
+      <view class="detail">
+        <view class="f28 mb10">平底豆豆鞋女夏季2018新款春百搭韩版</view>
+        <view class="fc-999 mb10">
+          <block class="t">
+            <text class="f24">颜色：白色；尺码：M</text>
+          </block>
+        </view>
+      </view>
+    </view>
+  </view> -->
+  <view class="order-info" wx:for="{{skuList}}" wx:key="{{item.id}}">
+    <view class="info">
+      <view class="pic">
+        <image class="t" src='{{item.img}}' mode="widthFix"></image>
+      </view>
+      <view class="detail">
+        <view class="f28 mb10">{{item.title}}</view>
+        <view class="fc-999 mb10">
+          <block class="t">
+            <text class="f24">颜色：{{item.color}}；尺码：{{item.size}}</text>
+          </block>
+        </view>
+      </view>
+    </view>
+  </view>
+  <form bindsubmit="submitLogistics">
+  <!-- 快递单号 -->
+  <view class="express-detail">
+    <view class="choose">
+      <picker bindchange="expressChange" name="LogisticsCompany" value="{{expressIndex}}" range="{{expressArray}}" range-key="name">
+        <view class="express-name">
+          <text>请选择快递公司</text>
+          <view class="picker fc-9b">{{expressArray[expressIndex].name}}</view>
+        </view>
+      </picker>
+      <view class="triangle">
+        <view class="content"></view>
+      </view>
+    </view>
+    <view class="tracking-num">
+      <view class="title">请填写快递单号</view>
+      <view class="fill-ecode">
+        <view class="scan" bindtap="scanCode">
+          <i class="iconfont icon-ecode"></i>
+          <text class="f24 mt10">扫描单号</text>
+        </view>
+        <input value="{{logisticsNumber}}" name="logisticsNo" class="f28" type="number" maxlength="14" placeholder="多行输入"></input>
+      </view>
+    </view>
+    <!-- 手机号 -->
+    <view class="tel-num">
+      <view class="title">请填写手机号</view>
+      <input value="{{telNo}}" name="telNo" class="f28" type="number" maxlength="11" placeholder="请填写您11位手机号码"></input>
+    </view>
+  </view>
+  <!-- 提交快递单号 -->
+  <view class="submit-express-number">
+    <button class="btn btn-pink btn-big" formType="submit">提交</button>
+  </view>
+  </form>
+</view>

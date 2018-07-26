@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "header": "/pages/components/header/header",
+    "sku-modal": "/pages/components/skuModal/skuModal"
+  }
+}

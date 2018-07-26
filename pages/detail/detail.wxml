@@ -1,0 +1,124 @@
+
+<view class="goods-detail">
+  <header isShowBack="true">商品详情</header>
+  <!-- 服务 -->
+  <view class="goods-service" bindtap="showServiceModal">
+    <text class="title">服务</text>
+    <view class="service">
+      <i class="iconfont icon-server"></i>
+      包邮
+    </view>
+    <view class="service">
+      <i class="iconfont icon-server"></i>
+      72小时发货
+    </view>
+    <view class="service">
+      <i class="iconfont icon-server"></i>
+      7天无理由退货
+    </view>
+    <!-- 小三角 -->
+    <view class="triangle">
+      <view class="content"></view>
+    </view>
+    <view class="info-wrap" wx:if="{{isShowServiceModal}}" catchtap="hideServiceModal" data-dom="wrap">
+      <view class="service-info" catchtap="stopPropagation">
+        <view class="info-top">
+          <text>服务说明</text>
+          <view class="close-btn" catchtap="hideServiceModal" data-dom="btn">
+            <view>+</view>
+          </view>
+        </view>
+        <view class="info-main">
+          <view class="service-item">
+            <view class="title">
+              <view class="icon">
+                <i class="iconfont icon-server"></i>
+              </view>
+              包邮
+            </view>
+            <text class="item-detail">无特殊说明情况下购买任意商品，均可享受包邮服务。部分地区在有特殊情况的前提下，是否享受包邮服务以商家说明为准。</text>
+          </view>
+          <view class="service-item">
+            <view class="title">
+              <view class="icon">
+                <i class="iconfont icon-server"></i>
+              </view>
+              72小时发货
+            </view>
+            <text class="item-detail">卖家承诺付款后72小时内发货，预售商品除外。</text>
+          </view>
+          <view class="service-item">
+            <view class="title">
+              <view class="icon">
+                <i class="iconfont icon-server"></i>
+              </view>
+              7天无理由
+            </view>
+            <text class="item-detail">消费者在满足7天无理由申请条件的前提下，可以提出“7天无理由”的退货或退款申请。</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- <view class="goods-param" bindtap="showInfoModal">
+    <text class="title">参数</text>
+    <view class="param">材质成分、流行元素、产地……</view>
+    <view class="triangle">
+      <view class="content"></view>
+    </view>
+    <view class="info-wrap" wx:if="{{isShowInfoModal}}" catchtap="hideInfoModal" data-dom="wrap">
+      <view class="param-info" catchtap="stopPropagation">
+        <view class="info-top">
+          <text>商品参数</text>
+          <view class="close-btn" catchtap="hideInfoModal" data-dom="btn">
+            <view>+</view>
+          </view>
+        </view>
+        <view class="info-main">
+          <view class="item">
+            <text class="name">流行元素</text>
+            <text class="content">印花</text>
+          </view>
+          <view class="item">
+            <text class="name">袖长</text>
+            <text class="content">短袖</text>
+          </view>
+          <view class="item">
+            <text class="name">货号</text>
+            <text class="content">JW11</text>
+          </view>
+          <view class="item">
+            <text class="name">领型</text>
+            <text class="content">圆领</text>
+          </view>
+          <view class="item">
+            <text class="name">产地</text>
+            <text class="content">济南</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view> -->
+  <!-- 商品详情 -->
+  <view class="detail">
+    <block wx:for="{{product.detailImgs}}" wx:key="{{item.id}}">
+      <image class="detail-img" mode="widthFix" src="{{item.url}}" />
+    </block>
+  </view>
+  <!-- 商品操作 -->
+  <view class="action">
+    <view class="cart" bindtap="viewCart">
+      <i class="iconfont icon-cart-unselect"></i>
+      <text>购物车</text>
+    </view>
+    <view class="action-r" wx:if="{{!isSoldOut}}">
+      <view class="add-cart" data-type="cart" bindtap="showSkuModal">加入购物车</view>
+      <!-- 立即购买 -->
+      <view class="buy" data-type="buy" bindtap="showSkuModal">立即购买</view>
+    </view>
+    <view class="action-r" wx:if="{{isSoldOut}}">
+      <view class="sold-out">已下架</view>
+    </view>
+  </view>
+  <sku-modal  wx:if="{{isShowSkuModal}}" bindhideSkuModal="hideSkuModal" bindaddToCart="addToCart" bindbuyNow="buyNow" skuInfo="{{product.skus}}" type="{{type}}"></sku-modal>
+</view>

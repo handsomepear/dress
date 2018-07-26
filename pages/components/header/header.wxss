@@ -1,0 +1,69 @@
+.header {
+  width: 100%;
+  background-color: #fa6;
+}
+
+.header-placeholder {
+  width: 100%;
+  height: 64px;
+}
+
+.header-wrap {
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  height: 44px;
+  padding-top: 40px;
+  box-sizing: border-box;
+}
+
+
+.header-wrap .back {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  margin: 0 0 0 16px;
+  color: inherit;
+  background-color: transparent;
+}
+.header-title {
+  flex: 1;
+  padding: 0 16px;
+  font-size: 17px;
+  text-align: center;
+  position:relative;
+}
+.header-title .left-home {
+  position: absolute; top:0; left:30rpx; width:44rpx; height:44rpx;
+}
+.header-title .left-back { position: absolute; top:-10rpx; left:28rpx; padding:20rpx;}
+.header-title .left-back .inner{ width:20rpx; height:20rpx;transform: rotateZ(45deg)}
+.header-right {
+  width: 56px;
+}
+
+.header.isx .header-wrap {
+  padding-top: 44px;
+}
+
+.header.isx .header-placeholder {
+  height: 88px;
+}
+
+.header.android .header-placeholder {
+  height: 72px;
+}
+
+.header.android .header-wrap {
+  height: 48px;
+  padding-top: 24px;
+}
+
+.header.android .header-title {
+  text-align: center;
+}

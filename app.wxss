@@ -1,0 +1,70 @@
+@import "/static/icon/iconfont.wxss";
+page{ color:#3c3c3c; font-size: 24rpx; background-color: #f3f3f3; }
+
+/* bg-color */
+.bg-pink,.bg-ff6{background-color: #FF6480}
+.bg-green,.bg-2bb{background-color: #2BB336}
+.bg-green,.bg-2bb{background-color: #2BB336}
+.bg-black,.bg-101{background-color: #101010}
+.bg-gray,.bg-ccc{background-color: #ccc}
+
+/* fc-color */
+.fc-pink,.fc-ff6{color: #FF6480}
+.fc-green,.fc-2bb{color: #2BB336}
+.fc-green,.fc-2bb{color: #2BB336}
+.fc-black,.fc-101{color: #101010}
+.fc-3c3{color: #3c3c3c}
+.fc-999{color: #999}
+.fc-a0a{color: #a0a0a0;}
+
+/* font-size */
+.f20{font-size: 20rpx;}
+.f22{font-size: 22rpx;}
+.f24{font-size: 24rpx;}
+.f26{font-size: 26rpx;}
+.f28{font-size: 28rpx;}
+.f30{font-size: 30rpx;}
+.f32{font-size: 32rpx;}
+.f48{font-size: 48rpx;}
+
+
+/* 布局 */
+.ib{display: inline-block;}
+.pr {position: relative;}
+.pa {position: absolute;}
+.tc{text-align: center;}
+.tl{text-align: left;}
+.tr{text-align: right}
+
+.fr{float:right;}
+.p10{padding: 10rpx}
+.p15{padding: 15rpx}
+.p20{padding: 20rpx;}
+.pl10{padding-left: 10rpx}
+.pl20{padding-left:20rpx;}
+
+.mt10{margin-top: 10rpx;}
+.mt20{margin-top: 20rpx;}
+.mr10{margin-right: 10rpx;}
+.mr20{margin-right: 20rpx}
+.mb10{margin-bottom: 10rpx;}
+.mb15{margin-bottom:15rpx;}
+.mb20{margin-bottom:15rpx;}
+
+
+/* 按钮 */
+.btn{display: inline-block; text-align: center;}
+.btn.btn-info {border: 2rpx solid #9B9B9B; color:#3c3c3c; border:2rpx solid #9B9B9B; color: #3c3c3c; box-sizing: border-box}
+.btn.btn-pink {background: #FF6480; color: #fff}
+.btn.btn-green {background: #2BB336; color: #fff}
+
+.btn.btn-small{width: 164rpx; height: 60rpx; border-radius: 30rpx; line-height: 60rpx;}
+.btn.btn-big{ height:92rpx; line-height: 92rpx; border-radius: 46rpx;}
+
+/* 授权操作 */
+.panel-allow {width: 100%; height: 100%; position: fixed; z-index: 999; left: 0; top: 0; background: rgba(0,0,0,.8); font-size: 30rpx; text-align: center;}
+.panel-allow .bar {height: 128rpx; line-height: 128rpx; background: linear-gradient(90deg, #623db1, #b351cf); font-size: 30rpx;}
+.panel-allow .bar .btn-auth {display: inline-block; width: 142rpx; text-align: center; height: 68rpx; line-height: 68rpx; background: #fff; color: red; border-radius: 100rpx; font-size: 30rpx; margin-left: 30rpx;}
+
+
+/* cover-view {overflow: auto} */

@@ -1,0 +1,147 @@
+{
+	"description": "项目配置文件。",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": true,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.0.9",
+	"appid": "wx299543e7945f132f",
+	"projectname": "%E5%A5%B3%E8%A3%85%E5%95%86%E5%9F%8E",
+	"svr": "",
+	"client": "",
+	"qcloudRoot": "",
+	"miniprogramRoot": "",
+	"pluginRoot": "",
+	"scripts": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"list": []
+		},
+		"miniprogram": {
+			"current": 16,
+			"list": [
+				{
+					"id": -1,
+					"name": "测试",
+					"pathName": "pages/test/test",
+					"query": ""
+				},
+				{
+					"id": 1,
+					"name": "我的-首页",
+					"pathName": "pages/mine/index/index",
+					"query": "isShowLike=false"
+				},
+				{
+					"id": -1,
+					"name": "我的-收藏",
+					"pathName": "pages/mine/collection/collection",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "我的-现金券",
+					"pathName": "pages/mine/coupon/coupon",
+					"query": ""
+				},
+				{
+					"id": 4,
+					"name": "我的-地址",
+					"pathName": "pages/mine/address/address",
+					"query": ""
+				},
+				{
+					"id": 5,
+					"name": "商品详情",
+					"pathName": "pages/detail/detail",
+					"query": "productId=13"
+				},
+				{
+					"id": 6,
+					"name": "支付结果",
+					"pathName": "pages/order/payResult/payResult",
+					"query": ""
+				},
+				{
+					"id": 7,
+					"name": "订单详情",
+					"pathName": "pages/order/orderDetail/orderDetail",
+					"query": "orderId=130"
+				},
+				{
+					"id": 8,
+					"name": "退款",
+					"pathName": "pages/service/refund/refund",
+					"query": "serviceType=0"
+				},
+				{
+					"id": 9,
+					"name": "退款详情",
+					"pathName": "pages/service/refundDetail/refundDetail",
+					"query": "orderId=351&orderSkuId=458"
+				},
+				{
+					"id": 10,
+					"name": "购物车",
+					"pathName": "pages/cart/cart",
+					"query": ""
+				},
+				{
+					"id": 11,
+					"name": "订单结算",
+					"pathName": "pages/order/settlement/settlement",
+					"query": "preOrderInfo={\"orderList\":[{\"id\":0,\"quantity\":1,\"feeInfo\":{\"discountAmount\":0,\"amount\":0.14,\"logisticsFee\":0},\"skuList\":[{\"color\":\"米白色\",\"id\":0,\"skuId\":417,\"img\":\"http://mk-gc-img.maike51.com/sgc/100018/image/b9699f5904b6465398afcf589b47f605.png\",\"price\":0.14,\"quantity\":1,\"size\":\"\",\"title\":null,\"productId\":64}],\"shop\":{\"id\":0,\"name\":null}}],\"feeInfo\":{\"discountAmount\":0,\"amount\":0.14,\"logisticsFee\":0},\"payOrderNo\":null}"
+				},
+				{
+					"id": 12,
+					"name": "  退货-快递单号",
+					"pathName": "pages/service/express/express",
+					"query": "applyNumber=19"
+				},
+				{
+					"id": 13,
+					"name": "店铺列表",
+					"pathName": "pages/store/store",
+					"query": "shopId=1"
+				},
+				{
+					"id": -1,
+					"name": "icon",
+					"pathName": "pages/icon/icon",
+					"query": ""
+				},
+				{
+					"id": 15,
+					"name": "indexB",
+					"pathName": "pages/indexB/indexB",
+					"query": "indexB"
+				},
+				{
+					"id": -1,
+					"name": "首页",
+					"pathName": "pages/index/index",
+					"query": "its=56"
+				}
+			]
+		}
+	}
+}

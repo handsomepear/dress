@@ -1,0 +1,27 @@
+@import "../mine.wxss";
+
+.t {
+  height: 100vh;
+}
+
+
+.address-list {
+  border-top:2rpx solid #ddd;
+  padding-bottom: 200rpx;
+  box-sizing: border-box
+}
+
+
+.add-btn {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  padding: 20rpx 0 50rpx;
+  background-color: #fff;
+  text-align: center;
+}
+
+.address-action {
+  padding: 15rpx 10rpx;
+}

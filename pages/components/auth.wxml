@@ -1,0 +1,9 @@
+<view class="panel-allow" wx:if="{{!isAuthAllow}}">
+  <view class="bar">
+    <text>您还没有开启授权，无法正常浏览~</text>
+    <view bindtap="tryAuth" class="btn-auth">
+      <text>授权</text>
+      <button style="width: 100%; height: 100%; position: absolute; left: 0; top: 0; opacity: 0;" class="ib" open-type="getUserInfo" bindgetuserinfo="userInfoHandler">授权</button>
+    </view>
+  </view>
+</view>

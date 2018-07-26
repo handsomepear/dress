@@ -1,0 +1,64 @@
+@import '../mine.wxss';
+
+.mine-top {
+  width: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 10;
+}
+.txt.title {
+  height: 80rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.coder-list .item .title {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 70rpx;
+  color: #101010;
+  line-height: 60rpx;
+  border-bottom: 1px #f6f6f6 solid;
+  margin-bottom: 25rpx;
+}
+.item .name {
+  width: 70%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.no-more {
+  padding: 20rpx;
+  text-align: center;
+}
+
+.loading-con {
+  width: 100%;
+  position: absolute;
+  bottom: -100rpx;
+  left: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.loading {
+  width: 200px;
+  height: 50px;
+  background: url('http://image.guang.j.cn/static/imgs/dress/loading.png') no-repeat;
+  animation: loading steps(44) 2s infinite;
+}
+
+@keyframes loading {
+  from {
+    background-position: 0 0; 
+  }
+  to {
+    background-position: -8800px 0;
+  }
+}

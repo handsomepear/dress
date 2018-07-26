@@ -1,0 +1,149 @@
+<!-- mine-index.wxml -->
+<wxs src="../../../utils/tools.wxs" module="tools"></wxs>
+<view class="mine" style="padding-top: {{isx ? '480rpx' : '440rpx'}}">
+  <view class="mine-top">
+    <header backgroundColor="#FF6480" color="#fff">我的</header>
+    <view class="toper bg-pink">
+      <view class="user-info">
+        <image class="avatar" src="{{userInfo.avatarUrl}}" mode="widthFix"></image>
+        <text class="t">{{userInfo.nickName}}</text>
+      </view>
+      <view class="addr fr f28" bindtap="viewAddress">
+        我的地址
+        <i class="iconfont icon-position-1"></i>
+      </view>
+    </view>
+    <view class="tab-title f32">
+      <view class="tab-one {{isShowLike ? 'act' : ''}}" bindtap="exec" data-a="我的收藏">
+        <i class="iconfont icon-shoucang"></i>
+        我的收藏
+      </view>
+      <view class="tab-one {{isShowLike ? '' : 'act'}}" bindtap="exec" data-a="我的订单">
+        <i class="iconfont icon-order"></i>
+        我的订单
+      </view>
+      <view class="loading-con" wx:if="{{isPullLoading}}">
+        <view class="loading"></view>
+      </view>
+    </view>
+  </view>
+  <view class="list-wrap">
+    <view class="like-list" wx:if="{{isShowLike}}">
+      
+      <block class="t" wx:if="{{hasFavorite}}">
+        <view class="item" wx:for="{{likeList}}" wx:key="{{item.id}}">
+          <view class="img-wrap" data-product-id="{{item.product.id}}" bindtap="viewDetail">
+            <image class="img" src="{{item.product.imgs[0].url}}" mode="widthFix"></image>
+          </view>
+          <text class="txt title mt10 fc-black">{{item.product.title}}</text>
+          <view class="txt mb10 fc-pink">￥{{tools.priceFilter(item.product.lowPrice)}}</view>
+          <view class="btn-wrap">
+            <view class="btn btn-info" data-favorite-id="{{item.id}}" data-product-id="{{item.product.id}}" bindtap="removeFavorite">
+              <i class="iconfont icon-delete f26"></i>
+            </view>
+            <view class="btn btn-info " data-product-info="{{item}}" bindtap="showSkuModal">
+              <i class="iconfont icon-move-cart f48"></i>
+            </view>
+          </view>
+        </view>
+        <view class="no-more fc-999" wx:if="{{!hasMoreFavorite}}">没有更多了</view>
+      </block>
+      <block wx:else>
+        <view class="empty">
+          <i class="iconfont icon-shoucangkongbai fc-999"></i>
+          <text class="fc-999">暂时没有收藏哦</text>
+        </view>
+      </block>
+    </view>
+    <view class="coder-list" wx:else>
+
+      <block class="t" wx:if="{{hasOrder}}">
+        <view class="item mb20" wx:for="{{coderList}}" wx:key="{{item.id}}" wx:for-item="item">
+          <view class="title">
+            <view class="name f28">
+              <i class="iconfont icon-shop f26 mr10"></i>
+              <text class="f28">{{item.shop.name}}</text>
+            </view>
+            <view class="fr fc-pink" wx:if="{{!item.duringAfterSale && item.status == 1}}">
+              等待发货
+            </view>
+            <view class="fr fc-pink" wx:if="{{!item.duringAfterSale && item.status == 2}}">
+              等待收货
+            </view>
+            <view class="fr fc-pink" wx:if="{{!item.duringAfterSale && item.status == 3 || !item.duringAfterSale && item.status == 6}}">
+              交易成功
+            </view>
+            <view class="fr fc-pink" wx:if="{{item.duringAfterSale}}">售后处理中</view>
+            <view class="fr fc-pink" wx:if="{{!item.duringAfterSale && item.status == 5}}">
+              订单关闭
+            </view>
+          </view>
+          <view class="goods mb20">
+            <block class="t" wx:for="{{item.skuList}}" wx:for-index="oneIndex" wx:key="{{one.id}}" wx:for-item="one">
+              <view class="info mb20" data-cur-order="{{item}}" bindtap="viewOrderDetail">
+                <view class="pic">
+                  <image class="t" src='{{one.img}}'></image>
+                </view>
+                <view class="detail">
+                  <view class="f28 mb10">{{one.title}}</view>
+                  <view class="fc-999 mb10">
+                    <text class="f24">颜色:{{one.color}};</text>
+                    <text class="f24">尺码:{{one.size}};</text>
+                  </view>
+                  <view class="f28">
+                    ￥{{tools.priceFilter(one.price)}}
+                    <text class="fr">
+                      <text class="f20">X</text>
+                      <text>{{one.quantity}}</text>
+                    </text>
+                  </view>
+                </view>
+              </view>
+            </block>
+          </view>
+          <view class="total tr mb20">
+            共{{item.quantity}}件商品 合计:
+            <text class="fc-pink f32">￥{{tools.priceFilter(item.price)}}元</text>
+          </view>
+          <!-- <block wx:if="{{!item.duringAfterSale}}">
+            <view class="total tr" wx:if="{{item.status == 2 }}">
+              <view class="btn btn-small btn-info mr20" data-index="{{index}}" data-order-id="{{item.id}}" bindtap="queryLogistics">
+                查看物流
+              </view>
+              <view class="btn btn-small btn-pink" data-order-id="{{item.id}}" bindtap="confirmReceive">
+                确认收货
+              </view>
+            </view>
+          </block> -->
+          <view class="total tr" wx:if="{{item.status == 2 }}">
+            <view class="btn btn-small btn-info mr20" data-order-id="{{item.id}}" data-index="{{index}}" bindtap="queryLogistics">
+              查看物流
+            </view>
+            <view class="btn btn-small btn-pink" data-index="{{index}}" data-order-id="{{item.id}}" bindtap="confirmReceive">
+              确认收货
+            </view>
+          </view>
+          <view class="total tr" wx:if="{{item.status == 3 || item.status == 5}}">
+            <view class="btn btn-small btn-info mr20" data-cur-order="{{item}}" bindtap="viewOrderDetail">
+              查看详情
+            </view>
+            <view class="btn btn-small btn-pink" data-cur-order="{{item}}" bindtap="buyAgain">
+              再次购买
+            </view>
+          </view>
+        </view>
+        <view class="no-more fc-999" wx:if="{{!hasMoreOrder}}">没有更多了</view>
+      </block>
+      <block wx:else>
+        <view class="empty">
+          <i class="iconfont icon-group fc-999"></i>
+          <text class="fc-999">暂时没有订单哦</text>
+        </view>
+      </block>
+    </view>
+  </view>
+  <sku-modal wx:if="{{isShowSkuModal}}" skuInfo="{{currentProduct.product.skus}}" bindhideSkuModal="hideSkuModal" bindaddToCart="addToCart" />
+  <logistics-modal wx:if="{{isShowLogisticsModal}}" bindhideLogisticsModal="hideLogisticsModal" logisticsInfo="{{logisticsInfo}}" skuList="{{currentSkuList}}"></logistics-modal>
+</view>
+<!-- 未授权提示 -->
+<include class="" src="../../components/auth.wxml"></include>

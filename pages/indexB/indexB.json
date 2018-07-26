@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "header": "../components/header/header",
+    "cover-sku": "../components/cover-sku/cover-sku"
+  },
+  "enablePullDownRefresh": true
+}

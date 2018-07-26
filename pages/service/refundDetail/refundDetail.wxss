@@ -1,0 +1,145 @@
+@import '../service.wxss';
+
+.refund-detail {
+  padding-bottom: 200rpx;
+}
+
+.refund-info {
+  margin-top: 46rpx;
+  font-size: 28rpx;
+  line-height: 48rpx;
+}
+
+.express-btn {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 20rpx;
+  border-top: 2rpx solid #ddd;
+  margin-top: 30rpx;
+}
+.express-btn .btn:first-child {
+  margin-right: 20rpx;
+}
+
+.fill-number {
+  width: 100%;
+  padding: 0 24rpx;
+  font-size: 28rpx;
+  box-sizing: border-box;
+  margin: 40rpx 0;
+}
+
+.fill-number .btn {
+  width: 100%;
+}
+
+.question {
+  padding-left: 24rpx;
+  padding-right: 20rpx;
+  background-color: #fff;
+}
+.issue-desc {
+  padding: 30rpx 0;
+  font-size: 28rpx;
+  line-height: 48rpx;
+  
+}
+
+/* 凭证 */
+.evidence {
+  padding: 20rpx 0 30rpx;
+  border-top: 2rpx solid #ddd;
+}
+.title {
+  font-size: 28rpx;
+  line-height: 40rpx;
+  margin-bottom: 20rpx;
+}
+
+.evidence-img {
+  display: flex;
+}
+
+.evidence-img image {
+  width: 160rpx;
+  height: 160rpx;
+  margin-right: 20rpx;
+}
+
+.progress {
+  position: relative;
+  padding: 20rpx 46rpx 26rpx 30rpx ;
+  background-color: #fff;
+}
+
+.progress-item {
+  position: relative;
+  padding-left: 26rpx;
+  padding-bottom: 30rpx;
+  box-sizing: border-box;
+  border-left: 4rpx solid #ddd;
+  color: #999;
+  
+}
+.progress-item:last-child {
+  border-left-color: transparent;
+}
+
+.progress-item .dot {
+  position: absolute;
+  left: -20rpx;
+  top: 0rpx;
+  content: '';
+  display: block;
+  width: 16rpx;
+  height: 16rpx;
+  background-color: #ddd;
+  border: 10rpx solid #fff;
+  border-radius: 50%;
+}
+.progress-item text {
+  font-size: 28rpx;
+  line-height: 40rpx;
+}
+.progress-item .time {
+  font-size: 24rpx;
+  line-height: 40rpx;
+  /* color: rgb(255, 167, 183) */
+}
+
+.progress-item.active .dot {
+  background-color: #ff6480;
+}
+
+.progress-item.active text, .progress-item.active .time {
+  color: #ff6480;
+}
+
+.refund-btn {
+  width: 100%;
+  padding: 0 48rpx;
+  box-sizing: border-box;
+  margin-top: 40rpx;
+}
+.refund-btn .btn {
+  width: 100%;
+  font-size: 28rpx;
+}
+
+.customer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24rpx;
+  line-height: 34rpx;
+  margin-top: 40rpx;
+}
+.customer i {
+  font-size: 30rpx;
+  margin-right: 13rpx;
+}
+
+button[plain] {
+  border: none;
+  line-height: 34rpx;
+}

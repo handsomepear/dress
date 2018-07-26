@@ -1,0 +1,69 @@
+<wxs src="../../../utils/tools.wxs" module="tools"></wxs>
+<view class="logistics-wrap" bindtap="closeModal">
+  <view class="logistics-con" catchtap="stopPropagation">
+    <!-- 顶部 -->
+    <view class="top">
+      <view class="head">
+        <view class="title">派送中</view>
+      </view>
+      <view class="close-btn" capture-catch:tap="closeModal">
+        <view>+</view>
+      </view>
+      <view class="good">
+        <view class="good-img">
+          <image src="{{skuList[0].img}}" />
+        </view>
+        <view class="desc">
+          <view class="good-title">
+            <view class="title">{{skuList[0].title}}</view>
+            <view class="aount fr">共{{skuList.length}}件</view>
+          </view>
+          <view class="company">物流公司：{{logisticsInfo.expressCompany}}</view>
+          <view class="code">
+            <text>物流单号：{{logisticsInfo.expressNo}}</text>
+            <view class="copy-btn" bindtap="copyNum">复制单号</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!-- 物流line -->
+    <scroll-view class="timeline" scroll-y="{{true}}">
+      <!-- <view class="item">
+        <view class="clock">
+          <view class="date f26 fc-101">06-14</view>
+          <view class="time f24 fc-999">12:36</view>
+        </view>
+        <view class="icon-con">
+          <i class="icon fc-999"></i>
+        </view>
+        <view class="info">
+          <view class="info-state fc-999">派送中</view>
+          <view class="info-main fc-999">北京市海淀区皂居苗派件员：杨亚超 18911559712 正在为您派件</view>
+        </view>
+      </view> -->
+      <block  wx:for="{{traces}}" wx:key="{{index}}" wx:if="{{traces.length > 0}}">
+        <view class="item">
+          <!-- 时间 -->
+          <view class="clock">
+            <view class="date f26 fc-101">{{tools.filterDate(item.acceptTime)}}</view>
+            <view class="time f24 fc-999">{{tools.filterTime(item.acceptTime)}}</view>
+          </view>
+          <!-- 图标 -->
+          <!-- <view class="icon-con border">
+            <i class="iconfont"></i>
+          </view> -->
+          <view class="icon-con">
+            <i class="icon fc-999"></i>
+          </view>
+          <view class="info">
+            <!-- <view class="info-state fc-999">已发货</view> -->
+            <view class="info-main fc-999">{{item.acceptStation}}</view>
+          </view>
+        </view>
+      </block>
+      <block wx:if="{{traces.length == 0}}">
+        <view class="fc-999 f28 no-logistics">暂时没有物流信息</view>
+      </block>
+    </scroll-view>
+  </view>
+</view>

@@ -1,0 +1,138 @@
+<!-- logs.wxml -->
+<view class="test">
+  <header>图标</header>
+  <!-- <sku-modal></sku-modal> -->
+
+	<view class="icon-list">
+		<view class="item">
+			<i class="iconfont icon-youjiantou"></i>
+			<view class="txt">icon-youjiantou</view>
+		</view>
+		<view class="item">
+			<i class="iconfont icon-shoucang"></i>
+			<view class="txt">icon-shoucang</view>
+		</view>
+		<view class="item">
+			<i class="iconfont icon-shoucangkongbai"></i>
+			<view class="txt">icon-shoucangkongbai</view>
+		</view>
+		<view class="item">
+			<i class="iconfont icon-camera"></i>
+			<view class="txt">icon-camera</view>
+		</view>
+		<view class="item">
+			<i class="iconfont icon-delete"></i>
+			<view class="txt">icon-delete</view>
+		</view>
+		<view class="item">
+			<i class="iconfont icon-cart-unselect"></i>
+			<view class="txt">icon-cart-unselect</view>
+		</view>
+		<view class="item">
+			<i class="iconfont icon-cart-3"></i>
+			<view class="txt">icon-cart-3</view>
+		</view>
+		<view class="item">
+			<i class="iconfont icon-ecode"></i>
+			<view class="txt">icon-ecode</view>
+		</view>
+		<view class="item">
+			<i class="iconfont icon-cart-select"></i>
+			<view class="txt">icon-cart-select</view>
+		</view>
+		<view class="item">
+			<i class="iconfont icon-cart-1"></i>
+			<view class="txt">icon-cart-1</view>
+		</view>
+		<view class="item">
+			<i class="iconfont icon-get"></i>
+			<view class="txt">icon-get</view>
+		</view>
+		<view class="item">
+			<i class="iconfont icon-group"></i>
+			<view class="txt">icon-group</view>
+		</view>
+		<view class="item">
+			<i class="iconfont icon-move-like"></i>
+			<view class="txt">icon-move-like</view>
+		</view>
+		<view class="item">
+			<i class="iconfont icon-edit"></i>
+			<view class="txt">icon-edit</view>
+		</view>
+		<view class="item">
+			<i class="iconfont icon-home-act"></i>
+			<view class="txt">icon-home-act</view>
+		</view>
+		<view class="item">
+			<i class="iconfont icon-my"></i>
+			<view class="txt">icon-my</view>
+		</view>
+		<view class="item">
+			<i class="iconfont icon-my-act"></i>
+			<view class="txt">icon-my-act</view>
+		</view>
+		<view class="item">
+			<i class="iconfont icon-order"></i>
+			<view class="txt">icon-order</view>
+		</view>
+		<view class="item">
+			<i class="iconfont icon-pay"></i>
+			<view class="txt">icon-pay</view>
+		</view>
+		<view class="item">
+			<i class="iconfont icon-home"></i>
+			<view class="txt">icon-home</view>
+		</view>
+		<view class="item">
+			<i class="iconfont icon-position-1"></i>
+			<view class="txt">icon-position-1</view>
+		</view>
+		<view class="item">
+			<i class="iconfont icon-position-2"></i>
+			<view class="txt">icon-position-2</view>
+		</view>
+		<view class="item">
+			<i class="iconfont icon-server"></i>
+			<view class="txt">icon-server</view>
+		</view>
+		<view class="item">
+			<i class="iconfont icon-waiter"></i>
+			<view class="txt">icon-waiter</view>
+		</view>
+		<view class="item">
+			<i class="iconfont icon-waiter-1"></i>
+			<view class="txt">icon-waiter-1</view>
+		</view>
+		<view class="item">
+			<i class="iconfont icon-shop"></i>
+			<view class="txt">icon-shop</view>
+		</view>
+		<view class="item">
+			<i class="iconfont icon-like"></i>
+			<view class="txt">icon-like</view>
+		</view>
+		<view class="item">
+			<i class="iconfont icon-share"></i>
+			<view class="txt">icon-share</view>
+		</view>
+		<view class="item">
+			<i class="iconfont icon-cart"></i>
+			<view class="txt">icon-cart</view>
+		</view>
+		<view class="item">
+			<i class="iconfont icon-move-cart"></i>
+			<view class="txt">icon-move-cart</view>
+		</view>
+		<view class="item">
+			<i class="iconfont icon-return"></i>
+			<view class="txt">icon-return</view>
+		</view>
+		<view class="item">
+			<i class="iconfont icon-success"></i>
+			<view class="txt">icon-success</view>
+		</view>
+	</view>
+
+
+</view>

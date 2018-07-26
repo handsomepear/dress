@@ -1,0 +1,150 @@
+<wxs src="../../../utils/tools.wxs" module="tools" />
+<view class="order-detail" wx:if="{{orderDetail}}">
+  <header isShowBack="true">订单详情</header>
+  <view class="order-detail-container">
+    <view class="coder-list">
+      <!-- <block class="t" wx:for="{{coderList}}" wx:key="{{item.id}}" wx:for-item="item"> -->
+      <view class="item mb20">
+        <view class="title f28">
+          <view class="title-name">
+            <i class="iconfont icon-shop f26 mr10"></i>
+            <text class="f28">{{orderDetail.shop.name}}</text>
+          </view>
+          <view class="fr fc-pink" wx:if="{{!orderDetail.duringAfterSale && orderDetail.status == 1}}">
+            等待发货
+          </view>
+          <view class="fr fc-pink" wx:if="{{!orderDetail.duringAfterSale &&orderDetail.status == 2}}">
+            等待收货
+          </view>
+          <view class="fr fc-pink" wx:if="{{!orderDetail.duringAfterSale && orderDetail.status == 3 || !orderDetail.duringAfterSale && orderDetail.status == 6}}">
+            交易成功
+          </view>
+          <view class="fr fc-pink" wx:if="{{orderDetail.duringAfterSale}}">售后处理中</view>
+          <view class="fr fc-pink" wx:if="{{!orderDetail.duringAfterSale && orderDetail.status == 5}}">
+            订单关闭
+          </view>
+        </view>
+        <view class="goods">
+          <block class="t" wx:for="{{orderDetail.skuList}}" wx:key="{{one.id}}" wx:for-item="one">
+            <view class="info mb20">
+              <view class="pic">
+                <image class="t" src='{{one.img}}' mode="widthFix"></image>
+              </view>
+              <view class="detail">
+                <view class="f28 mb10">{{one.title}}</view>
+                <view class="fc-9b mb10">
+                  <text class="f24" wx:if="{{one.color}}">颜色:{{one.color}};</text>
+                  <text class="f24" wx:if="{{one.size}}">尺码:{{one.size}};</text>
+                </view>
+                <view class="f28">
+                  ￥{{one.price}}
+                  <text class="fr">
+                    <text class="f20">X</text>
+                    <text>{{one.quantity}}</text>
+                  </text>
+                </view>
+                <!-- <block wx:if="{{orderDetail.status == 2 || orderDetail.status == 3 || orderDetail.status == 4 || (orderDetail.duringAfterSale && orderDetail.afterSaleStatus == -1)}}"> -->
+                <block wx:if="{{(orderDetail.afterSaleStatus == -1) && (orderDetail.status != 6) && (orderDetail.status != 1)}}">
+                  <view class="total tr" wx:if="{{one.afterSaleStatus == -1}}">
+                    <view class="btn btn-small btn-info" data-order-id="{{orderDetail.id}}" data-order-no="{{orderDetail.orderNo}}" data-sku-info="{{one}}" bindtap="applyServiceSingle">
+                      申请售后
+                    </view>
+                  </view>
+                  <view class="total tr" wx:else data-sku-id="{{one.id}}" bindtap="viewSingleService">
+                    <view class="fc-pink" wx:if="{{one.afterSaleStatus == 0}}">等待商家审核 ></view>
+                    <view class="fc-pink" wx:if="{{one.afterSaleStatus == 1}}">商家同意退款 ></view>
+                    <view class="fc-pink" wx:if="{{one.afterSaleStatus == 2}}">已退款 ></view>
+                    <view class="fc-pink" wx:if="{{one.afterSaleStatus == 3}}">退款被商家拒绝 ></view>
+                    <view class="fc-pink" wx:if="{{one.afterSaleStatus == 4}}">退货被商家拒绝 ></view>
+                    <view class="fc-pink" wx:if="{{one.afterSaleStatus == 5}}">商家同意退货 ></view>
+                    <view class="fc-pink" wx:if="{{one.afterSaleStatus == 7}}">买家已退货 ></view>
+                  </view>
+                </block>
+              </view>
+            </view>
+          </block>
+        </view>
+        <view class="total tr">
+          <text class="count">共{{orderDetail.quantity}}件商品</text>
+          合计：
+          <text class="fc-pink f32">￥{{orderDetail.price}}元</text>
+        </view>
+      </view>
+      <!-- </block> -->
+    </view>
+  </view>
+  <!-- 售后状态 -->
+  <view class="service-state" wx:if="{{orderDetail.afterSaleStatus == 0 || orderDetail.afterSaleStatus == 1 ||  orderDetail.afterSaleStatus == 2 || orderDetail.afterSaleStatus == 3 || orderDetail.afterSaleStatus == -2}}" bindtap="viewAllService">
+    售后状态：
+    <text class="fc-pink" wx:if="{{orderDetail.afterSaleStatus == 0}}">审核中</text>
+    <text class="fc-pink" wx:if="{{orderDetail.afterSaleStatus == 1}}">退款中</text>
+    <text class="fc-pink" wx:if="{{orderDetail.afterSaleStatus == 2}}">已退款</text>
+    <text class="fc-pink" wx:if="{{orderDetail.afterSaleStatus == 3}}">商家拒绝</text>
+    <text class="fc-pink" wx:if="{{orderDetail.afterSaleStatus == -2}}">系统原因</text>
+    <view class="triangle">
+      <view class="content"></view>
+    </view>
+  </view>
+  <!-- 收件人信息 -->
+  <view class="address-info">
+    <!-- 收货人 -->
+    <view class="consignee">
+      收货人：
+      <text class="name">{{orderDetail.addressInfo.name || ''}}</text>
+      <text class="tel" wx:if="{{orderDetail.addressInfo.tel}}">{{tools.hideTelNumber(orderDetail.addressInfo.tel) || ''}}</text>
+    </view>
+    <view class="address">
+      {{orderDetail.addressInfo.addrProvince}} {{orderDetail.addressInfo.addrCity}} {{orderDetail.addressInfo.addrDistrict}} {{orderDetail.addressInfo.addrDetail}}
+    </view>
+  </view>
+  <!-- 订单信息 -->
+  <view class="order-info">
+    <view>订单编号：{{orderDetail.orderNo}}</view>
+    <view>付款时间：{{orderDetail.payTime}}</view>
+    <view wx:if="{{orderDetail.sendTime}}">发货时间：{{orderDetail.sendTime}}</view>
+    <view wx:if="{{orderDetail.receiveTime}}">收货时间：{{orderDetail.receiveTime}}</view>
+  </view>
+  <!-- action -->
+  <block>
+    <view class="order-action" wx:if="{{orderDetail.status == 2}}">
+      <view class="btn btn-small btn-info mr20" bindtap="viewLogistics">查看物流</view>
+      <view class="btn btn-small btn-pink" bindtap="showReceiptModal">确认收货</view>
+    </view>
+    <view class="order-action" wx:if="{{orderDetail.status == 3 || orderDetail.status == 5}}">
+      <view class="btn btn-small btn-info mr20" bindtap="buyAgain">再次购买</view>
+    </view>
+    <block wx:if="{{!orderDetail.duringAfterSale || orderDetail.status != 6}}">
+      <view class="order-action" wx:if="{{orderDetail.status == 1 && orderDetail.afterSaleStatus == -1}}">
+        <view class="btn btn-small btn-info mr20" bindtap="showRefundModal">退款</view>
+      </view>
+    </block>
+  </block>
+  <!-- refund modal -->
+  <view class="refund-modal-wrap" bindtap="hideRefundModal" wx:if="{{isShowRefundModal}}">
+    <view class="refund-modal" catchtap="stopPropagation">
+      <!-- 仅退款 -->
+      <view class="refund-only refund" data-type="1" bindtap="applyService">
+        <view class="title">
+          <i class="iconfont icon-return"></i>
+          <text>仅退款</text>
+        </view>
+        <view class="desc">未收到货(包含未签收),或卖家协商同意前提下</view>
+        <view class="triangle">
+          <view class="content"></view>
+        </view>
+      </view>
+      <!-- 退货退款 -->
+      <view class="return-sale refund" wx:if="{{orderDetail.status != 1}}" data-type="2" bindtap="applyService">
+        <view class="title">
+          <i class="iconfont icon-return"></i>
+          <text>退货退款</text>
+        </view>
+        <text class="desc">已收到货，需要退换已收到的货物</text>
+        <view class="triangle">
+          <view class="content"></view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <logistics-modal wx:if="{{isShowLogisticsModal}}" bindhideLogisticsModal="hideLogisticsModal" logisticsInfo="{{logisticsInfo}}" skuList="{{orderDetail.skuList}}"></logistics-modal>
+</view>

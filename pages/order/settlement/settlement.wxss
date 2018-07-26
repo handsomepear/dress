@@ -1,0 +1,175 @@
+.settlement {
+  padding-bottom: 120rpx;
+}
+.address-container {
+  
+  background-color: #fff;
+  
+ 
+}
+.address-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  min-height: 112rpx;
+  padding: 20rpx 26rpx 18rpx 24rpx;
+  margin-bottom: 20rpx;
+  box-sizing: border-box;
+  border-top: 2rpx solid #ddd;
+  background: url(https://image.guang.j.cn/static/imgs/dress/my/tiaotiao.png?t=9584) bottom no-repeat;
+  background-size: contain
+}
+
+.icon-position-2 {
+  margin-right: 10rpx;
+}
+.address-container .recipients-info {
+  font-size: 32rpx;
+  line-height: 44rpx;
+  color: #101010;
+  margin-bottom: 12rpx;
+}
+
+.recipients-info .name {
+  margin-right: 20rpx;
+}
+
+.address-info,
+.no-address {
+  display: flex;
+  align-items: center;
+}
+
+.address-info text {
+  font-size: 24rpx;
+  line-height: 34rpx;
+  color: #666;
+}
+
+.no-address text {
+  font-size: 28rpx;
+  line-height: 40rpx;
+}
+
+.address-container .triangle .content {
+  width: 14rpx;
+  height: 14rpx;
+  border: #666 solid;
+  border-width: 2rpx 2rpx 0 0;
+  transform: rotate(45deg);
+}
+
+/* 商品信息 */
+
+.mb24 {
+  margin-bottom: 24rpx;
+}
+.coder-list .item {
+  background: #fff;
+  padding: 20rpx 20rpx 0;
+}
+.coder-list .item .title {
+  height: 70rpx;
+  color: #101010;
+  line-height: 60rpx;
+  border-bottom: 1px #f6f6f6 solid;
+  margin-bottom: 25rpx;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden
+}
+.coder-list .item .goods {
+  border-bottom: 1px #f6f6f6 solid;
+  padding-bottom: 32rpx;
+}
+.coder-list .item .info {
+  display: flex;
+  margin-bottom: 48rpx;
+}
+.coder-list .item .info:last-child {
+  margin-bottom: 0;
+}
+.coder-list .item .info .pic {
+  width: 190rpx;
+  height: 190rpx;
+}
+.coder-list .item .info .pic image {
+  width: 100%;
+}
+.coder-list .item .info .detail {
+  flex: 1;
+  padding-left: 20rpx;
+}
+.coder-list .freight, .coder-list .coupon{
+  display: flex;
+  justify-content: space-between;
+  height: 102rpx;
+  background-color: #fff;
+  line-height: 102rpx;
+  font-size: 28rpx;
+  box-sizing: border-box;
+} 
+.coder-list .freight {
+  border-bottom: 2rpx solid #f6f6f6;
+}
+.fc-9b {
+  color: #9b9b9b;
+}
+
+.coder-list .item .detail .total {
+  margin-top: 12rpx;
+}
+.total {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: 90rpx;
+}
+.count {
+  margin-right: 20rpx;
+}
+
+.protocol {
+  width: 100%;
+  height: 80rpx;
+  background-color: #fff;
+  line-height: 80rpx;
+  font-size: 24rpx;
+  color: #999;
+  padding: 0 26rpx;
+  box-sizing: border-box;
+}
+
+.protocol text {
+  color: #000;
+}
+
+/* 底部支付栏 */
+.pay-container {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  width: 100%;
+  height: 100rpx;
+  justify-content: flex-end;
+  line-height: 100rpx;
+  background: #fff;
+}
+
+.pay-container .money {
+  font-size: 28rpx;
+  margin-right: 22rpx;
+}
+.pay-container .money text {
+  font-size: 32rpx;
+}
+.pay-container .pay-btn {
+  width: 210rpx;
+  height: 100%;
+  background-color: #2bb336;
+  font-size: 30rpx;
+  text-align: center;
+  color: #fff;
+}

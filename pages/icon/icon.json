@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "header": "/pages/components/header/header",
+   "sku-modal": "/pages/components/skuModal/skuModal",
+   "cover-sku": "/pages/components/cover-sku/cover-sku",
+   "logistics-modal": "/pages/components/logisticsModal/logisticsModal"
+  }
+}

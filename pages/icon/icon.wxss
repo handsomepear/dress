@@ -1,0 +1,3 @@
+.icon-list{ background: #000 ; color:#ddd;}
+.icon-list .item{display: inline-block; width: 25%; height: 240rpx; text-align: center; vertical-align: middle;}
+.icon-list i{ font-size:120rpx; }

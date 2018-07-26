@@ -1,0 +1,59 @@
+<!-- mine-address.wxml -->
+<!-- 地址列表 -->
+<view class="t" wx:if="{{type == 'list'}}">
+  <view class="header" style="position: fixed;top:0;left:0;z-index:10">
+    <header isShowBack="true" backgroundColor="#fff" color="#000" isShowBack>我的地址</header>
+  </view>
+  <!-- 无收货地址 -->
+  <view class="no-address" wx:if="{{!hasAddress}}">
+    <view class="inner">
+      <view class="tc f32 fc-999">您的还没有收货地址哦~</view>
+      <view class="btn-wrap">
+        <view class="one">
+          <view class="btn btn-big btn-green f30" bindtap="loadWxAddr">使用微信地址</view>
+        </view>
+        <view class="one">
+          <view class="btn btn-big btn-pink f30" bindtap="toAddAddr">添加收货地址</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 收货地址列表 -->
+  <view class="address-list" wx:else style="padding-top:{{isx ? '90px' : '66px'}}">
+    <radio-group class="radio-group" bindchange="addrDefaultChange">
+      <block class="" wx:for="{{addressList}}" wx:key="{{index}}">
+        <view class="item" data-addr-info="{{item}}" bindtap="chooseAddr">
+          <view class="item-wrap {{item.isDefault == 1 ? 'act' : ''}}">
+            <view class="title">{{item.name}} {{item.tel}}</view>
+            <view class="info">
+              {{item.addrProvince}} {{item.addrCity}} {{item.addrDistrict}} {{item.addrDetail}}
+            </view>
+            <view class="">
+              <view class="mo ib f28 setting">
+                <label class="radio" data-id="{{item.id}}">
+                  <radio value="{{item.id}}" checked="{{item.isDefault == 1}}" color="#ff6480" />
+                  {{item.isDefault ? '默认地址' :'设置为默认'}}
+                </label>
+              </view>
+              <view class="fr">
+                <view class="ib address-action" data-addr-info="{{item}}" catchtap="editAddr">
+                  <i class="iconfont icon-edit f26"></i>
+                  编辑
+                </view>
+                <view class="ib address-action " data-addr-id="{{item.id}}" catchtap="removeAddr">
+                  <i class="iconfont icon-delete f26"></i>
+                  删除
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </block>
+    </radio-group>
+    <view class="add-btn">
+      <view class="btn btn-big btn-pink" bindtap="toAddAddr">+ 新建地址</view>
+    </view>
+  </view>
+</view>
+<!-- 未授权提示 -->
+<include class="" src="../../components/auth.wxml"></include>

@@ -1,0 +1,37 @@
+<view class="index-page">
+  <header>每日新款</header>
+  <view class="good-list">
+    <view class="good-item" wx:for="{{products}}" wx:key="{{item.id}}">
+      <video id="video-{{index}}" src="{{products[currentIndex].video.url ? products[currentIndex].video.url : 'https://weappstatic1.j.cn/video/mrxk/180509/1741/1c8efab4536d11e8.mp4'}}" binderror="error" loop="true" muted="true" controls="{{false}}" class="video" objectFit="cover"></video>
+      <view class="good-detail">
+        <view class="desc">
+          <view class="good-title f30 fc-101">{{item.title}}</view>
+          <view class="good-price">
+            <view class="low-price fc-pink">￥{{item.lowPrice}}</view>
+            <view class="high-price">原价￥{{item.highPrice}}</view>
+          </view>
+        </view>
+        <view class="good-else">
+          <view class="store">
+            <view class="store-avatar mr10">
+              <image src="/static/img/my-avatar.jpg" mode="widthFix" />
+            </view>
+            <view class="store-name f22">{{item.shopInfo.title}}</view>
+          </view>
+          <view class="action">
+            <view class="share">
+               <image src="/static/img/share.png" />
+            </view>
+            <view class="collect">
+               <image src="/static/img/like.png" />
+            </view>
+            <view class="view-detail" data-product-id="{{item.id}}" bindtap="viewDetail">
+              <text class="mr10">看详情</text>
+              <i class="iconfont icon-youjiantou f22"></i>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

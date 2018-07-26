@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "header": "../../components/header/header",
+    "sku-modal": "../../components/skuModal/skuModal",
+    "logistics-modal": "../../components/logisticsModal/logisticsModal"
+  },
+  
+  "enablePullDownRefresh": true
+}

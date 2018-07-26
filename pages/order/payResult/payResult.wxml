@@ -1,0 +1,13 @@
+<wxs src="../../../utils/tools.wxs" module="tools"></wxs>
+<view class="settle-result">
+  <header isShowBack="true" delta="2">支付成功</header>
+  <view class="result-desc">
+    <i class="iconfont icon-success"></i>
+    <text class="desc" wx:if="{{result==0}}">支付成功</text>
+  </view>
+  <view class="settle-price">￥{{tools.priceFilter(price)}}</view>
+  <view class="button-group">
+    <view class="btn btn-pink" bindtap="viewOrderList">查看订单</view>
+    <view class="btn btn-pink" bindtap="continue">继续逛逛</view>
+  </view>
+</view>

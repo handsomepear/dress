@@ -1,0 +1,6 @@
+<checkbox-custom class="checkbox-custom">
+  <!--  -->
+  <view class="item {{checked && !disabled ? 'checked' : ''}}">
+    <icon type="success" size="18" color="#FF6480" wx:if="{{checked && !disabled}}"></icon>
+  </view>
+</checkbox-custom>

@@ -1,0 +1,6 @@
+{
+  "disableScroll": true,
+  "usingComponents": {
+    "cover-sku": "../components/cover-sku/cover-sku"
+  }
+}

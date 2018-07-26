@@ -1,0 +1,10 @@
+{
+	"usingComponents": {
+    "header": "../../components/header/header"
+  },
+	
+  "backgroundTextStyle": "light",
+  "navigationBarBackgroundColor": "#fff",
+  "navigationBarTitleText": "我的地址",
+  "navigationBarTextStyle": "black"
+}

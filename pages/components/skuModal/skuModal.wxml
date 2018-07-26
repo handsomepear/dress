@@ -1,0 +1,63 @@
+<wxs src="../../../utils/tools.wxs" module="tools"></wxs>
+<view class="sku-modal {{isShowSkuModal ? 'show' : 'hide'}}"  bindtap="closeModal">
+  <view class="sku-container {{isShowSkuModal ? 'show': 'hide' }}" catchtap="stopPropagation">
+    <!-- 价格 -->
+    <view class="top">
+      <view class="image">
+        <image src="{{skuInfo[0].imgUrl}}"></image>
+      </view>
+      <view class="price">
+        <view class="product-title">
+          <text>{{skuInfo[0].productTitle}}</text>
+        </view>
+        <view class="price-info" wx:if="{{currentPrice}}">
+          ￥
+          <text>{{currentPrice}}</text>
+        </view>
+        <view class="sku-info" >
+          <text wx:if="{{currentColorName}}">{{currentColorName }}</text>
+          <text wx:if="{{currentSizeName}}">{{ currentSizeName && currentColorName ? '/' +  currentSizeName : currentSizeName}}</text>
+          <text wx:if="{{currentInventory}}">  库存：{{currentInventory}}</text>
+        </view>
+      </view>
+      <view class="close-btn" capture-catch:tap="closeModal">
+        <view>+</view>
+      </view>
+    </view>
+    <!-- 颜色分类 -->
+    <view class="color-classes" wx:if="{{colorList.length > 0}}">
+      <text class="title">颜色分类</text>
+      <view class="list">
+        <view class="sku-item {{index == currentColor && !colorItem.disabled ? 'active' : ''}} {{colorItem.disabled ? 'disabled' : ''}}" data-select="{{index}}" wx:for="{{colorList}}" wx:for-item="colorItem" wx:key="colorItem.id" bindtap="chooseColor">
+          {{colorItem.color}}
+        </view>
+        <!-- <view class="sku-item">薄荷绿</view>
+        <view class="sku-item">枫叶红</view>
+        <view class="sku-item">墨绿</view>
+        <view class="sku-item">枫叶红</view>
+        <view class="sku-item">酒红色</view> -->
+      </view>
+    </view>
+    <!-- 尺寸 -->
+    <view class="size" wx:if="{{sizeList.length > 0}}">
+      <text class="title">尺寸</text>
+      <view class="list">
+        <view  class="sku-item {{index == currentSize && !sizeItem.disabled ? 'active' : ''}} {{sizeItem.disabled ? 'disabled' : ''}}" data-select="{{index}}" wx:for="{{sizeList}}" wx:for-item="sizeItem" wx:key="sizeItem.id" bindtap="chooseSize" >
+          {{sizeItem.size}}
+        </view>
+      </view>
+    </view>
+    <!-- 数量 -->
+    <view class="count" wx:if="{{isShowQuantity}}">
+      <text class="title">数量</text>
+      <view class="count-action">
+        <text class="subtract" bindtap="subtractNum">-</text>
+        <input type="text" class="count-input" value="{{goodQuantity}}" bindblur="quantityChange" />
+        <text class="add" bindtap="increaseNum">+</text>
+      </view>
+    </view>
+    <!-- 加入购物车 -->
+    <view wx:if="{{type === 'cart'}}" class="add-cart {{btnDisabled ? 'disabled' : ''}}" bindtap="addCart">{{isShowQuantity?'加入购物车':'确定'}}</view>
+    <view wx:if="{{type === 'buy'}}" class="add-cart {{btnDisabled ? 'disabled' : ''}}" bindtap="buyNow" >立即购买</view>
+  </view>
+</view>

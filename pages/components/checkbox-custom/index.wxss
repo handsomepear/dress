@@ -1,0 +1,18 @@
+
+
+.item {
+  width: 36rpx;
+  height: 36rpx;
+  line-height: 36rpx;
+  text-align: center;
+  border: 2rpx solid #aaa;
+  background-color: #fff;
+  border-radius: 50%;
+  color: #fff;
+  box-sizing: border-box;
+}
+
+.checked {
+  border: none;
+  font-size: 30rpx;
+}

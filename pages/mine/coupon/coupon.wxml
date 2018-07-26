@@ -1,0 +1,25 @@
+<!--mine-index.wxml-->
+
+<header backgroundColor="#fff" color="#000" isShowBack>现金券</header>
+<view class="coupon-list">
+	<block wx:for="{{couponList}}" wx:key="{{item.id}}">
+		<view class="item">
+			<view class="cash-wrap {{item.status == '1' ? 'bg-pink' : 'bg-a0a'}} tc">
+				<view class="txt f32 "><text class="money">{{item.price}}</text></view>
+				<view class="f24">现金券</view>
+			</view>
+			<view class="detail">
+				<view class="used" wx:if="{{item.status == 2}}"></view>
+				<view class="txt mb10 fc-black f30">{{item.title}}</view>
+				<view class="txt mb10 f26">满 <text class="fc-pink">￥{{item.over}}</text> 可用</view>
+				<view class="time mb10 f20 fc-a0a">2018.06.14-2018.07.15</view>
+				<view class="opation"> 
+					<view class="btn pink small" wx:if="{{item.status == 1}}">立即使用</view>
+					<view class="fc-a0a" wx:if="{{item.status == 0}}">已过期</view>
+				</view>
+			</view>
+		</view>
+	</block>
+</view>
+<!-- 未授权提示 -->
+<include class="" src="../../components/auth.wxml"></include>

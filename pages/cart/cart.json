@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "购物车",
+  
+  "usingComponents": {
+    "checkbox-custom": "/pages/components/checkbox-custom/index",
+    "header": "/pages/components/header/header",
+    "sku-modal": "/pages/components/skuModal/skuModal"
+  }
+}

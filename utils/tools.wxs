@@ -1,0 +1,51 @@
+// 处理手机号码显示
+function hideTelNumber(telNumber) {
+  telNumber = '' + telNumber
+  var reg = getRegExp('^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1})|(17[0-9]{1}))+d{8})$')
+  if (reg.test(telNumber)) {
+    return telNumber.substring(0, 3) + '****' + telNumber.substring(7)
+  }
+  return telNumber
+}
+// 处理价格浮点数计算
+function accMul(arg1, arg2) {
+  if (isNaN(arg1)) {
+    arg1 = 0
+  }
+  if (isNaN(arg2)) {
+    arg2 = 0
+  }
+  arg1 = parseFloat(arg1).toFixed(2)
+  arg2 = parseFloat(arg2).toFixed(2)
+  var s1 = arg1.toString(),
+    s2 = arg2.toString()
+  return (parseFloat(s1.replace('.','')) * parseFloat(s2.replace('.',''))) / 10000
+}
+// 处理价格 保留两位小数
+function priceFilter(price){
+  return parseFloat(price).toFixed(2)
+}
+
+function filterDate(date){
+  var dateTime = getDate(date)
+  var month = dateTime.getMonth() + 1 >= 10 ? dateTime.getMonth() + 1 : '0' + (dateTime.getMonth() + 1)
+  var day = dateTime.getDate() >= 10 ? dateTime.getDate() : '0' + dateTime.getDate()
+  return month + '-' + day;
+}
+
+function filterTime(date) {
+  var dateTime = getDate(date)
+  var hours = dateTime.getHours()
+  hours = hours >= 10 ? hours : '0' + hours
+  var minutes = dateTime.getMinutes() 
+  minutes = minutes >= 10 ? minutes : '0' + minutes
+  return hours + ':' + minutes
+}
+
+module.exports = {
+  hideTelNumber: hideTelNumber,
+  accMul: accMul,
+  priceFilter: priceFilter,
+  filterDate: filterDate,
+  filterTime: filterTime
+}

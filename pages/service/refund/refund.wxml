@@ -1,0 +1,91 @@
+<!-- 退款申请 -->
+<view class="refund">
+  <header isShowBack="true">退款申请</header>
+  <!-- 退款的订单信息 -->
+  <view class="order-info" wx:for="{{serviceInfo.skuList}}" wx:key="{{item.id}}">
+    <view class="info">
+      <view class="pic">
+        <image class="t" src='{{item.img}}' mode="widthFix"></image>
+      </view>
+      <view class="detail">
+        <view class="f28 mb10">{{item.title}}</view>
+        <view class="fc-999 mb10">
+          <block class="t">
+            <text class="f24">颜色：{{item.color}}；尺码：{{item.size}}</text>
+          </block>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 退款信息 -->
+  <form bindsubmit="submitService">
+    <view class="refund-info">
+      <view class="reason">
+        <picker bindchange="reasonPickerChange" name="reason" value="{{reasonIndex}}" range="{{refundReason}}" range-key="name">
+          <view class="reason-info">
+            请选择原因
+            <view class="picker fc-9b">{{refundReason[reasonIndex].name}}</view>
+          </view>
+        </picker>
+        <!-- <picker bindchange="reasonPickerChange" name="reason" wx:if="{{serviceInfo.serviceType == 1}}" value="{{reasonIndex}}" range="{{receivedRefundSaleArr}}" range-key="name">
+          <view class="reason-info">
+            请选择原因
+            <view class="picker fc-9b">{{receivedRefundSaleArr[reasonIndex].name}}</view>
+          </view>
+        </picker>
+        <picker bindchange="reasonPickerChange" name="reason" wx:if="{{serviceInfo.serviceType == 2}}" value="{{reasonIndex}}" range="{{receivedRefundArr}}" range-key="name">
+          <view class="reason-info">
+            请选择原因
+            <view class="picker fc-9b">{{receivedRefundArr[reasonIndex].name}}</view>
+          </view>
+        </picker> -->
+        <view class="triangle">
+          <view class="content"></view>
+        </view>
+      </view>
+      <view class="quantity" wx:if="{{serviceInfo.serviceType != 0}}">
+        申请件数：
+        <view class="count">
+          <view class="substract" bindtap="subtractNum">-</view>
+          <input type="number" name="quantity" value="{{quantity}}" bindblur="quantityChange" />
+          <view class="add" bindtap="increaseNum">+</view>
+        </view>
+        <text class="f28" style="color: #9b9b9b">（最多可申请{{serviceInfo.skuList[0].quantity}}件）</text>
+      </view>
+      <view class="money">
+        退款金额：
+        <text class="fc-pink">￥{{serviceInfo.price ? serviceInfo.price : returnPrice}}</text>
+      </view>
+    </view>
+    <!-- 问题描述 -->
+    <view class="issue-desc">
+      <view class="title">
+        请填写问题描述
+        <text>（选填）</text>
+      </view>
+      <textarea value="{{serviceInfo.detailDesc}}" id="" cols="30" rows="10" name="problemDesc" placeholder="多行输入"></textarea>
+    </view>
+    <!-- 上传凭证 -->
+    <view class="post-img">
+      <view class="title">
+        上传凭证
+        <text>（选填）</text>
+      </view>
+      <view class="post-container">
+        <block wx:if="{{proofImgList.length > 0}}">
+          <view class="proof-img" wx:for="{{proofImgList}}" wx:for-index="proofImgIndex" wx:for-item="proofImgItem" wx:key="{{proofImgIndex}}">
+            <image src="{{proofImgItem}}" />
+          </view>
+        </block>
+        <view class="post-btn" wx:if="{{proofImgList.length < 5}}" bindtap="uploadsImg">
+          <i class="iconfont icon-camera"></i>
+          <text>选择文件</text>
+        </view>
+      </view>
+    </view>
+    <!-- 提交按钮 -->
+    <view class="submit-btn">
+      <button class="btn btn-pink btn-big f28" formType="submit">提交</button>
+    </view>
+  </form>
+</view>
